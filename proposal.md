@@ -41,7 +41,7 @@ This project will have a modal/section that explains the concept of criticality 
 The app will have a main view where the simulation occurs that represents the reactor. The title
 will be above and toggle sliders will be on the top right. Either through a modal or section at the bottom will explain the idea and how the app works. Links to my info will be below the title.
 
-[wireframe](JSproject_wireframe.jpeg)
+[wireframe](JSproject_wireframe.png)
 
 ###Architecture and Technologies
 
