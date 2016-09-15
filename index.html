@@ -8,11 +8,14 @@
     <script type="application/javascript" src="lib/bundle.js"></script>
     <div class='content'>
       <div class='controls'>
-        <label>k value (Choose between 0 and 2)
+        <label>k Value (Choose between 0 and 2)
           <input id="kvalue" type='number' min="0.0" max="2.0" step="0.1" value="1"></input>
         </label>
         <button type="button" id="start">Start</button>
         <button type="button" id="stop">Stop</button>
+        <label> Speed (speeds up simulation time)
+          <input id="speed" type="range" min="2.0" max="10" step="1" value="2"></input>
+        </label>
       <div>
       <canvas class="canvas"></canvas>
       <div id='graph'></div>
