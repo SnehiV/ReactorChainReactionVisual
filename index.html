@@ -7,7 +7,15 @@
   <body>
     <script type="application/javascript" src="lib/bundle.js"></script>
     <div class='content'>
+      <div class='controls'>
+        <label>k value (Choose between 0 and 2)
+          <input id="kvalue" type='number' min="0.0" max="2.0" step="0.1" value="1"></input>
+        </label>
+        <button type="button" id="start">Start</button>
+        <button type="button" id="stop">Stop</button>
+      <div>
       <canvas class="canvas"></canvas>
+      <div id='graph'></div>
     </div>
     <div style="display:none;">
       <img id="core" src='core.gif' width='140' height='140'></img>
