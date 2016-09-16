@@ -25,7 +25,7 @@ power of the reactor if there were no safeguards.
 
 This is a visualization of nuclear reactor that illustrates the chain reaction of fission events that results from neutrons colliding with the core. These collisions could result in a fission event the can produce 2-3 neutrons depending on the fuel. However the probability of a fission events occurring depends on a number of [complex factors](https://en.wikipedia.org/wiki/Six_factor_formula) that can be multiplied to form what is known as the effective multiplication constant (k). In an operating nuclear reactor the k value is kept very close to 1. Deviating from a k value of 1 can result in exponential decay of the neutron population if below 1 or and exponential increase in the neutron population if k is above 1.
 
-##Methodology
+###Methodology
 In an operating reactor there are numerous systems in place to ensure that this does not happen. However in this visualization we will assume no safety precautions are in place because, why not?!?!? The point of the visualization is to illustrate the concept of nuclear fission chain reactions and how the neutron population can exponentially increase or decrease.
 
 In this system the probability of a fission event is determined by the k value. The k value is a ratio of
