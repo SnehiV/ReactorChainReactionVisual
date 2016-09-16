@@ -21,20 +21,18 @@ This simulation will visualize the effect of the k value on neutron population f
 
 ###Functionality and MVP
 
-This simulation will allow the user to toggle the the k value with a slider and watch
+This simulation will allow the user to toggle the the k value with a number input and watch
 as the neutrons exponentially grow or decay. Each generation of neutrons will be a different
 color so the user can see the change from one generation to the next. There will be a core in
 the center of the view and when neutrons collide with it based on the probability that is determined
-by the k value, either a fission event will occur that is visualized by flash of color in the core and
-producing two or three new neutron objects of a different color or nothing will happen which represents,
-absorption by moderator, fuel, or other particles without a fission event.
+by the k value, either a fission event will occur producing two or three new neutron objects of a different color or nothing will happen which represents, absorption by moderator, fuel, or other particles without a fission event.
 
-There could also be a speed slider that would toggle the velocity of the neutrons. I plan on making the visualization very colorful.
+There could also be a speed slider that would toggle the speed of the simulation. I plan on making the visualization very colorful.
 
-There will be an upper limit on the k value of 1.5 or 2 because then multiplication would happen too fast.
-There will also be an upper limit on the number of neutrons. In practice, if the k value is over 1 for too long it will result in a meltdown. The simulation will end when a the upper limit of neutrons is reached. There could be an animation indicating a meltdown happening. If the user chooses a k value < 1 then the neutrons will eventually deplete to 0.
+There will be an upper limit on the k value of 1.5 or 2 because then multiplication would happen too fast. The power level will be displayed every second and I will keep track of the average power level behind the scenes. If the average power level reached a certain upper limit the simulation will end in
+a meltdown. In normal reactor operation, if the k value is over 1 for too long it will result in a meltdown. There could be an animation indicating a meltdown happening. If the user chooses a k value < 1 then the neutrons will eventually deplete to 0.
 
-This project will have a modal/section that explains the concept of criticality and fission chain reactions.
+This project will have a modal/section that explains the concept of criticality and fission chain reactions. **** too much for the modal. I put it in the README ****
 
 ###Wireframe
 

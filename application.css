@@ -1,12 +1,13 @@
 .content {
-    /*display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 
   canvas {
-    color: black;
+    background-image: url("assets/homer.jpg");
+    background-size: cover;
   }
 
   html, body, section, article, h1, p, div, a {
@@ -15,23 +16,23 @@
     border: 0;
     font: inherit;
     color: inherit;
-    background: transparent;
   }
   body {
     font-family: sans-serif;
     padding: 100px;
   }
-  h1 {
+
+  .modal-header {
     margin: 0 0 20px 0;
-    font-size: 60px;
+    font-size: 36px;
     font-weight: bold;
   }
+
   p {
     margin: 20px 0;
     font-size: medium;
     color: black;
     font-weight: bolder;
-    background-color: rgba(999, 999, 999, 0.3);
   }
   a {
     color: blue;
@@ -64,10 +65,9 @@
     padding: 50px;
     margin-left: -250px;
     transform: translateY(-50%);
-    background-image: url("reactorcore.jpg");
-    background-size: contain;
     repea
     border-radius: 5px;
+    background-color: lightcyan;
   }
   .modal-close {
     position: absolute;
@@ -81,3 +81,56 @@
   .modal-close:hover {
     color: black;
   }
+
+  .readme:hover {
+    text-decoration: underline;
+  }
+
+  .controls {
+    padding: 30px 20px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 101%;
+    background-color: lightgrey;
+    align-items: center;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: initial;
+    padding: 10px;
+    width: 100%;
+}
+
+label > input {margin: 10px;}
+
+button {
+    width: 50%;
+    height: 10%;
+    font-size: large;
+}
+
+input#kvalue {
+    font-size: inherit;
+}
+
+button:hover {
+    color: white;
+}
+
+button#stop {
+    background-color: red;
+}
+
+button#start {
+    background-color: yellowgreen;
+}
+
+h1.content-header {
+    font-size: 60px;
+    text-align: center;
+    padding: 20px;
+}
