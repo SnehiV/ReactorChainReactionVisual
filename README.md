@@ -1,5 +1,7 @@
 Reactor Chain Reaction Visualization
 ------
+[Live](https://snehiv.github.io/ReactorChainReactionVisual/)
+
 ###Instructions
 This is a visualization of nuclear reactor that illustrates the chain
 reaction of fission events that results from neutrons colliding with the

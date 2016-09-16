@@ -1,58 +1,58 @@
-<html>
-  <head>
-    <title>ReactorChainReactionVisual</title>
-    <link rel="stylesheet" type="text/css" href="application.css" />
-  </head>
+  <html>
+    <head>
+      <title>ReactorChainReactionVisual</title>
+      <link rel="stylesheet" type="text/css" href="application.css" />
+    </head>
 
-  <body>
-    <script type="application/javascript" src="lib/bundle.js"></script>
-    <section id="modal" class="modal is-active">
-      <article class="modal-content">
-        <span class="modal-close js-hide-modal">&times;</span>
+    <body>
+      <script type="application/javascript" src="lib/bundle.js"></script>
+      <section id="modal" class="modal is-active">
+        <article class="modal-content">
+          <span class="modal-close js-hide-modal">&times;</span>
 
-        <h1 class="modal-header">Reactor Chain Reaction Visualization</h1>
+          <h1 class="modal-header">Reactor Chain Reaction Visualization</h1>
 
-        <p class="explain">
-                This is a visualization of nuclear reactor that illustrates
-          the chain reaction of fission events that results from neutrons
-          colliding with the core. Reactors in operation keep the k Value at 1.
-          <br />
-          <br />
-          Set the k Value > 1 to see the the
-          chain reaction get out of control or k Value < 1 to see the
-          neutrons die out. You can also increase the speed of the
-          simulation with the slider.
-          <br />
-          <br />
-          Select those values and press start.
-          <br />
-          <br />
-          The power level on the display is in Megawatts and represents
-          thermal power of the reactor if there were no safeguards.
-          <br />
-          <br />
-          Check out the <a class='readme' href='https://github.com/SnehiV/ReactorChainReactionVisual/blob/master/README.md'>README</a> for more information.
-        </p>
+          <p class="explain">
+                  This is a visualization of nuclear reactor that illustrates
+            the chain reaction of fission events that results from neutrons
+            colliding with the core. Reactors in operation keep the k Value at 1.
+            <br />
+            <br />
+            Set the k Value > 1 to see the the
+            chain reaction get out of control or k Value < 1 to see the
+            neutrons die out. You can also increase the speed of the
+            simulation with the slider.
+            <br />
+            <br />
+            Select those values and press start.
+            <br />
+            <br />
+            The power level on the display is in Megawatts and represents
+            thermal power of the reactor if there were no safeguards.
+            <br />
+            <br />
+            Check out the <a class='readme' href='https://github.com/SnehiV/ReactorChainReactionVisual/blob/master/README.md'>README</a> for more information.
+          </p>
 
-      </article>
-      <div class="modal-screen js-hide-modal"></div>
-    </section>
-    <h1 class="content-header">Reactor Chain Reaction Visualization</h1>
-    <div class='content'>
-      <canvas class="canvas"></canvas>
-      <div class='controls'>
-        <label>k Value (0 - 2)
-          <input id="kvalue" type='number' min="0.0" max="2.0" step="0.1" value="1"></input>
-        </label>
-        <button type="button" id="start">Start</button>
-        <button type="button" id="stop">Stop</button>
-        <label> Simulation speed
-          <input id="speed" type="range" min="2.0" max="10" step="1" value="2"></input>
-        </label>
+        </article>
+        <div class="modal-screen js-hide-modal"></div>
+      </section>
+      <h1 class="content-header">Reactor Chain Reaction Visualization</h1>
+      <div class='content'>
+        <canvas class="canvas"></canvas>
+        <div class='controls'>
+          <label>k Value (0 - 2)
+            <input id="kvalue" type='number' min="0.0" max="2.0" step="0.1" value="1"></input>
+          </label>
+          <button type="button" id="start">Start</button>
+          <button type="button" id="stop">Stop</button>
+          <label> Simulation speed
+            <input id="speed" type="range" min="2.0" max="10" step="1" value="2"></input>
+          </label>
+        </div>
       </div>
-    </div>
-    <div style="display:none;">
-      <img id="core" src='assets/core.gif' width='140' height='140'></img>
-    </div>
-  </body>
-</html>
+      <div style="display:none;">
+        <img id="core" src='assets/core.gif' width='140' height='140'></img>
+      </div>
+    </body>
+  </html>
