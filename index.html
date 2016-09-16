@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Reactor Chain Reaction Visualization by SnehiV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Reactor Chain Reaction Visualization</h1>
+      <h2 class="project-tagline">Visualization of neutron fission chain reaction inside a nuclear reactor</h2>
+      <a href="https://github.com/SnehiV/ReactorChainReactionVisual" class="btn">View on GitHub</a>
+      <a href="https://github.com/SnehiV/ReactorChainReactionVisual/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/SnehiV/ReactorChainReactionVisual/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h2>
+<a id="reactor-chain-reaction-visualization" class="anchor" href="#reactor-chain-reaction-visualization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reactor Chain Reaction Visualization</h2>
+
+<h3>
+<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions</h3>
+
+<p>This is a visualization of nuclear reactor that illustrates the chain
+reaction of fission events that results from neutrons colliding with the
+core. Reactors in operation keep the k Value at 1.</p>
+
+<p>Set the k Value &gt; 1 to see the the chain reaction get out of control or
+k Value &lt; 1 to see the neutrons die out. You can also increase the speed
+of the simulation with the slider.</p>
+
+<p>Select those values and press start.</p>
+
+<p>The power level on the display is in Megawatts and represents thermal
+power of the reactor if there were no safeguards.</p>
+
+<h3>
+<a id="technologieslanguages" class="anchor" href="#technologieslanguages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Technologies/languages</h3>
+
+<ul>
+<li>HTML5 Canvas</li>
+<li>JavaScript</li>
+<li>CSS3</li>
+<li>Babel</li>
+<li>Webpack</li>
+</ul>
+
+<h3>
+<a id="background" class="anchor" href="#background" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Background</h3>
+
+<p>This is a visualization of nuclear reactor that illustrates the chain reaction of fission events that results from neutrons colliding with the core. These collisions could result in a fission event the can produce 2-3 neutrons depending on the fuel. However the probability of a fission events occurring depends on a number of <a href="https://en.wikipedia.org/wiki/Six_factor_formula">complex factors</a> that can be multiplied to form what is known as the effective multiplication constant (k). In an operating nuclear reactor the k value is kept very close to 1. Deviating from a k value of 1 can result in exponential decay of the neutron population if below 1 or and exponential increase in the neutron population if k is above 1.</p>
+
+<h3>
+<a id="methodology" class="anchor" href="#methodology" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methodology</h3>
+
+<p>In an operating reactor there are numerous systems in place to ensure that this does not happen. However in this visualization we will assume no safety precautions are in place because, why not?!?!? The point of the visualization is to illustrate the concept of nuclear fission chain reactions and how the neutron population can exponentially increase or decrease.</p>
+
+<p>In this system the probability of a fission event is determined by the k value. The k value is a ratio of
+neutrons created from fission in one generation to neutrons absorbed in the preceding generation.</p>
+
+<p><img src="/assets/effective-multiplication-factor.png?raw=true" alt="keff formula"></p>
+
+<p>Meaning if there was a keff value of 1.1 and the population of a generation of neutrons is 1000. Then the next generation would have 1100 neutrons. This can be modeled by the differential equation
+Nn = N0 * (k∞)^n with N0 being the number of neutrons in the initial generation of neutrons, n being the number of generations, Nn being the neutron count of the nth generation from the initial. In normal operation of a nuclear reactor the k value oscillates form slightly slower than 1 to slightly higher than 1. I assumed that there would be 2 product neutrons per fission event. So if the k value is set at 1, meaning there are about the same number of neutrons in each generation, the probability of a fission event would be 50% so that each generation of neutrons would have a count of around 100. The probability for varying k values was calculated with this method.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">calculateFissionProbability</span>() {
+  <span class="pl-k">return</span> ((<span class="pl-v">this</span>.<span class="pl-smi">simulation</span>.<span class="pl-smi">initialNeutronCount</span> <span class="pl-k">*</span> <span class="pl-v">this</span>.<span class="pl-smi">kValue</span>) <span class="pl-k">/</span>
+   (<span class="pl-v">this</span>.<span class="pl-smi">simulation</span>.<span class="pl-smi">initialNeutronCount</span> <span class="pl-k">*</span> <span class="pl-c1">2</span>));
+}</pre></div>
+
+<p>In order to simplify the math of calculating the thermal power I assumed the operating thermal output of the reactor was 3000 Megawatts. This is about the average for most <a href="https://en.wikipedia.org/wiki/Pressurized_water_reactor">Pressurized water reactors</a>. Running the simulation with 100 initial neutrons with a k value of 1 resulted in about 5 fissions per second. Thus in this system each fission per second generates about 600 Megawatts of thermal output. In reality a fission event with Uranium-235 fuel results in 3.2 x 10^-11 joules. This means there are 9.375 x 10^19 fissions per second to generate 3000 MW of thermal output.</p>
+
+<p><img src="/assets/steady-state.png?raw=true" alt="steady-state"></p>
+
+<p>There have been very few nuclear reactor meltdowns to ever occur and some of these were caused cooling system malfunctions, human error, or a combination of both. In a reactor, cooling system are in place the flow water through the reactor absorb heat and prevent the core from getting too hot and in some cases the coolant can absorb neutrons to help prevent uncontrolled chain reactions. This simulation keeps track of the average power level over time and I set an arbitrary value 10000 MW on average when the meltdown alert is triggered.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">checkMeltdown</span>() {
+  <span class="pl-k">let</span> total <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+  <span class="pl-k">for</span> (<span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-v">this</span>.<span class="pl-smi">simulation</span>.<span class="pl-smi">powerLevel</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
+    total <span class="pl-k">+=</span> <span class="pl-v">this</span>.<span class="pl-smi">simulation</span>.<span class="pl-smi">powerLevel</span>[i];
+  }
+  <span class="pl-k">let</span> avgPowerLevel <span class="pl-k">=</span> total <span class="pl-k">/</span> <span class="pl-v">this</span>.<span class="pl-smi">simulation</span>.<span class="pl-smi">powerLevel</span>.<span class="pl-c1">length</span>;
+  <span class="pl-k">if</span> (avgPowerLevel <span class="pl-k">&gt;</span> <span class="pl-c1">10000</span>) {
+      <span class="pl-v">this</span>.<span class="pl-smi">alarm</span>.<span class="pl-smi">currentTime</span><span class="pl-k">=</span><span class="pl-c1">14</span>;
+      <span class="pl-v">this</span>.<span class="pl-smi">alarm</span>.<span class="pl-smi">volume</span> <span class="pl-k">=</span> <span class="pl-c1">0.2</span>;
+      <span class="pl-v">this</span>.<span class="pl-smi">alarm</span>.<span class="pl-c1">play</span>();
+      <span class="pl-v">this</span>.<span class="pl-smi">ctx</span>.<span class="pl-smi">font</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>bold 48px serif<span class="pl-pds">"</span></span>;
+      <span class="pl-v">this</span>.<span class="pl-smi">ctx</span>.<span class="pl-smi">fillStyle</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>red<span class="pl-pds">'</span></span>;
+      <span class="pl-v">this</span>.<span class="pl-smi">ctx</span>.<span class="pl-en">fillText</span>(<span class="pl-s"><span class="pl-pds">'</span>MELTDOWN<span class="pl-pds">'</span></span>, <span class="pl-c1">200</span>, <span class="pl-c1">400</span>);
+    <span class="pl-v">this</span>.<span class="pl-c1">stop</span>();
+  }
+}</pre></div>
+
+<h3>
+<a id="to-dosfuture-features" class="anchor" href="#to-dosfuture-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To-dos/future features</h3>
+
+<p>This project has room to be much more of an accurate representation of a nuclear reactor.
+The user could input all of the six factors of the six factor formula. The display could include
+moderators, coolants, and the possibility of neutrons simple escaping the reactor.</p>
+
+<p>I plan on making this into a game where the user would control some sort of moderator to prevent neutrons from reaching the core when the power level gets to high. It would get increasingly difficult as time went on. Perhaps the reactor could start at a very high power level and neutron count and the user would have to make sure as few fission events happen as they can so a meltdown does not occur.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/SnehiV/ReactorChainReactionVisual">Reactor Chain Reaction Visualization</a> is maintained by <a href="https://github.com/SnehiV">SnehiV</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
