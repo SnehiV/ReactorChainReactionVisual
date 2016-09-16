@@ -134,3 +134,15 @@ h1.content-header {
     text-align: center;
     padding: 20px;
 }
+
+footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
