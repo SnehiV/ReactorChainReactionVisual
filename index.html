@@ -6,7 +6,26 @@
 
   <body>
     <script type="application/javascript" src="lib/bundle.js"></script>
+    <section id="modal" class="modal is-active">
+      <article class="modal-content">
+        <span class="modal-close js-hide-modal">&times;</span>
+
+        <h1>Reactor Chain Reaction Visual</h1>
+
+        <p class="explain">
+                This is a visualization of nuclear reactor that illustrates
+          the chain reaction of fission events that results from neutrons
+          colliding with the core. Set the k value > 1 to see the the
+          chain reaction get out of control and less than one to see the
+          neutrons die out. You can also increase the speed of the
+          simulation with the slider.
+        </p>
+
+      </article>
+      <div class="modal-screen js-hide-modal"></div>
+    </section>
     <div class='content'>
+
       <div class='controls'>
         <label>k Value (Choose between 0 and 2)
           <input id="kvalue" type='number' min="0.0" max="2.0" step="0.1" value="1"></input>
@@ -16,9 +35,8 @@
         <label> Speed (speeds up simulation time)
           <input id="speed" type="range" min="2.0" max="10" step="1" value="2"></input>
         </label>
-      <div>
+      </div>
       <canvas class="canvas"></canvas>
-      <div id='graph'></div>
     </div>
     <div style="display:none;">
       <img id="core" src='core.gif' width='140' height='140'></img>
